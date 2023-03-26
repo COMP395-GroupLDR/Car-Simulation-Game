@@ -357,6 +357,10 @@ PrefabInstance:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 2c5b6927b0fa7d4488a684181fa4b577, type: 2}
+    - target: {fileID: 6506718302917793962, guid: 3f5e666b42863d644b88737e56e40347, type: 3}
+      propertyPath: speed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8511677635839879985, guid: 3f5e666b42863d644b88737e56e40347, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.9
