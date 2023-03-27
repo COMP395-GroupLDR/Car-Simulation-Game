@@ -462,6 +462,18 @@ PrefabInstance:
       propertyPath: speed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6506718302917793962, guid: 3f5e666b42863d644b88737e56e40347, type: 3}
+      propertyPath: moveSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065927051934703421, guid: 3f5e666b42863d644b88737e56e40347, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395315977754685264, guid: 3f5e666b42863d644b88737e56e40347, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8511677635839879985, guid: 3f5e666b42863d644b88737e56e40347, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.9

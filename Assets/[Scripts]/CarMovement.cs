@@ -4,33 +4,43 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-    public float speed = 10.0f;
-    public float turnSpeed = 100.0f;
+    public float moveSpeed = 10f;
+    public float turnSpeed = 50f;
 
-    private float horizontalInput;
-    private float verticalInput;
+    float verticalInput;
+    private bool isMoving = false;
     private Rigidbody rb;
 
-    private void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
+        // Check if the car is moving
+        if (rb.velocity.magnitude > 0.1f)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+        // Allow the car to turn only when it's moving
+        if (isMoving)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            transform.Rotate(0f, horizontalInput * turnSpeed * Time.deltaTime, 0f);
+        }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        // Move the car forward and backward
-        Vector3 forward = -transform.forward * verticalInput * speed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + forward);
-
-        // Rotate the car left and right
-        float turn = horizontalInput * turnSpeed * Time.fixedDeltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0.0f, turn, 0.0f);
-        rb.MoveRotation(rb.rotation * turnRotation);
+        // Move the car forward
+        Vector3 forward = -transform.forward * verticalInput * moveSpeed * Time.fixedDeltaTime;
+        rb.velocity = forward * moveSpeed;
     }
 }
