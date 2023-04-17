@@ -43,4 +43,13 @@ public class CarMovement : MonoBehaviour
         Vector3 forward = -transform.forward * verticalInput * moveSpeed * Time.fixedDeltaTime;
         rb.velocity = forward * moveSpeed;
     }
+
+    //script for scoring system
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Coins"))
+        {
+            ScoreScript.scoreValue += 10;
+        }
+    }
 }
